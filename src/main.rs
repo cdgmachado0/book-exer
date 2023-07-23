@@ -3,9 +3,8 @@ use std::io;
 
 fn main() {
     // convert_to_celsius();
-
-    get_fibonacci();
-
+    // get_fibonacci();
+    christmas_song();
 }
 
 
@@ -31,7 +30,7 @@ fn _convert_to_celsius() {
 }
 
 
-fn get_fibonacci() { 
+fn _get_fibonacci() { 
     'outter: loop {
         println!("What fibonacci number are you interested in?");
         let mut input = String::new();
@@ -82,6 +81,45 @@ fn get_fibonacci() {
             },
         };
     };
+
+
+}
+
+
+fn christmas_song() {
+    let days = ["first", "second", "third", "fourth", "fith", "sixth", "seventh", "eith", "nineth", "tenth", "eleventh", "twelfth"];
+    let amounts = ["", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+    let elements = [
+        "A partridge in a pear tree",
+        "turtle doves, and",
+        "french hens",
+        "calling birds",
+        "golden rings",
+        "geese a-laying",
+        "swans a-swimming",
+        "maids a-milking",
+        "ladies dancing",
+        "lords a-leaping",
+        "pipers piping",
+        "drummers drumming"
+    ];
+    let mut verse: String = Default::default();
+
+    for (i, day) in days.iter().enumerate() {
+
+        let opening = format!("On the {} day of Christmas, my true love sent to me\n", day);
+
+        if i == 0 {
+            verse += &(format!("{}{}", elements[i], "\n"));
+        } else {
+            verse += &(format!("{} {}", amounts[i], elements[i]));
+        }
+
+        let verse = format!("{}{}{}", opening, verse, "\n\n");
+        println!("{verse}");
+    }
+
+
 
 
 }
