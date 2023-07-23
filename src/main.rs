@@ -112,10 +112,10 @@ fn christmas_song() {
         if i == 0 {
             verse += &(format!("{}{}", elements[i], "\n"));
         } else {
-            verse += &(format!("{} {}", amounts[i], elements[i]));
+            verse = format!("{} {}{}", amounts[i], elements[i], "\n") + &verse;
         }
 
-        let verse = format!("{}{}{}", opening, verse, "\n\n");
+        let verse = format!("{}{}", opening, verse);
         println!("{verse}");
     }
 
