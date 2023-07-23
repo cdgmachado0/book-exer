@@ -10,19 +10,21 @@ fn main() {
 
 
 fn convert_to_celsius() {
+    const FARENHEIT: f32 = 33.8;
+    
+    loop {
+        println!("Please insert a temperature in Fahrenheit");
+        let mut input = String::new();
 
-    println!("Please insert a temperature in Fahrenheit");
+        io::stdin().read_line(&mut input).unwrap();
 
-    let mut temp = String::new();
-    const farenheit: f32 = 33.8;
-
-    io::stdin()
-        .read_line(&mut temp)
-        .expect("Please input a number");
-
-    let temp: f32 = temp.trim().parse().unwrap();
-    let in_celsius = temp / farenheit;
-
-    println!("{temp} degrees Farenheit is the same as {in_celsius} degrees Celsius");
-
+        match input.trim().parse::<f32>() {
+            Ok(num) => {
+                let in_celsius = num / FARENHEIT;
+                println!("{num} degrees Farenheit is the same as {in_celsius} degrees Celsius");
+                break;
+            },
+            Err(_) => continue,
+        };
+    }
 }
